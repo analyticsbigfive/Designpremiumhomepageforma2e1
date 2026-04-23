@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ChevronRight, TrendingUp, ArrowUpRight, Home, FileText, Calendar, CreditCard, Zap, ChevronDown, Menu, X, Phone, Mail, MapPin, Clock, Quote, ShieldCheck, Wallet, Building2, PiggyBank, Target, Eye, Users, Landmark, Newspaper, HelpCircle, Download, ExternalLink, Scale } from 'lucide-react';
+import { Reveal } from './hooks/Reveal';
+import { AnimatedNumber } from './hooks/AnimatedNumber';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -88,48 +90,64 @@ export default function App() {
             <span className="text-[#003d1f] text-xs sm:text-sm">15 ans d'excellence au service de 8 000+ adhérents</span>
           </div> */}
 
-          <h1 className="text-[#003d1f] text-[38px] sm:text-[52px] lg:text-[72px] font-normal leading-[1.1] tracking-[-1.5px] max-w-[1100px] mx-auto mb-6 sm:mb-8">
-            L'épargne qui fait grandir vos{' '}
-            <span className="relative inline-block">
-              <span className="text-[#00A651]">projets de vie</span>
-              <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 6C50 2 150 2 198 6" stroke="#F7941D" strokeWidth="3" strokeLinecap="round"/>
-              </svg>
-            </span>
-          </h1>
+          <Reveal immediate variant="up" delay={1}>
+            <h1 className="text-[#003d1f] text-[38px] sm:text-[52px] lg:text-[72px] font-normal leading-[1.1] tracking-[-1.5px] max-w-[1100px] mx-auto mb-6 sm:mb-8">
+              L'épargne qui fait grandir vos{' '}
+              <span className="relative inline-block">
+                <span className="text-[#00A651]">projets de vie</span>
+                <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 6C50 2 150 2 198 6" stroke="#F7941D" strokeWidth="3" strokeLinecap="round"/>
+                </svg>
+              </span>
+            </h1>
+          </Reveal>
 
-          <p className="text-[#666666] text-base sm:text-lg lg:text-xl max-w-[720px] mx-auto mb-8 sm:mb-12 leading-relaxed">
-            Institution mutualiste d'Épargne et de Crédit sans but lucratif, exclusivement réservée au personnel de <strong className="text-[#003d1f]">SODECI, CIE, GS2E et CIPREL</strong> en activité.
-          </p>
+          <Reveal immediate variant="up" delay={2}>
+            <p className="text-[#666666] text-base sm:text-lg lg:text-xl max-w-[720px] mx-auto mb-8 sm:mb-12 leading-relaxed">
+              Institution mutualiste d'Épargne et de Crédit sans but lucratif, exclusivement réservée au personnel de <strong className="text-[#003d1f]">SODECI, CIE, GS2E et CIPREL</strong> en activité.
+            </p>
+          </Reveal>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-20 max-w-sm sm:max-w-none mx-auto">
-            <button className="bg-[#00A651] text-white px-8 py-4 rounded text-[15px] hover:bg-[#00703a] transition-all hover:scale-105">
-              Devenir adhérent
-            </button>
-            <button className="bg-transparent text-[#003d1f] px-8 py-4 rounded text-[15px] border border-[#003d1f]/20 hover:border-[#003d1f] transition-colors">
-              Découvrir nos services
-            </button>
-          </div>
+          <Reveal immediate variant="up" delay={3}>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-20 max-w-sm sm:max-w-none mx-auto">
+              <button className="bg-[#00A651] text-white px-8 py-4 rounded text-[15px] hover:bg-[#00703a] transition-all hover:scale-105">
+                Devenir adhérent
+              </button>
+              <button className="bg-transparent text-[#003d1f] px-8 py-4 rounded text-[15px] border border-[#003d1f]/20 hover:border-[#003d1f] transition-colors">
+                Découvrir nos services
+              </button>
+            </div>
+          </Reveal>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-6 lg:gap-12 pt-10 sm:pt-12 border-t border-[#003d1f]/10 max-w-[1000px] mx-auto">
-            <div className="text-center">
-              <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2">7 335</div>
-              <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">Adhérents</div>
+          <Reveal immediate variant="up" delay={4}>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-6 lg:gap-12 pt-10 sm:pt-12 border-t border-[#003d1f]/10 max-w-[1000px] mx-auto">
+              <div className="text-center">
+                <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2 tabular-nums">
+                  <AnimatedNumber end={7335} />
+                </div>
+                <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">Adhérents</div>
+              </div>
+              <div className="text-center">
+                <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2 tabular-nums">
+                  <AnimatedNumber end={2.4} decimals={1} suffix=" Mds" />
+                </div>
+                <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">Crédits FCFA</div>
+              </div>
+              <div className="text-center">
+                <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2 tabular-nums">
+                  <AnimatedNumber end={9} />
+                </div>
+                <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">Produits</div>
+              </div>
+              <div className="text-center">
+                <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2 tabular-nums">
+                  <AnimatedNumber end={14} suffix=" ans" />
+                </div>
+                <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">D'activité</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2">2,4 Mds</div>
-              <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">Crédits FCFA</div>
-            </div>
-            <div className="text-center">
-              <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2">9</div>
-              <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">Produits</div>
-            </div>
-            <div className="text-center">
-              <div className="text-[#00A651] text-3xl sm:text-4xl lg:text-5xl font-medium mb-2">14 ans</div>
-              <div className="text-[#666666] text-[11px] sm:text-xs uppercase tracking-[2px]">D'activité</div>
-            </div>
-          </div>
+          </Reveal>
 
           {/* Scroll indicator */}
           <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
@@ -291,7 +309,8 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {/* Card 1 - Épargne */}
-            <div id="epargne" className="group bg-white border border-[#003d1f]/10 rounded-lg p-6 sm:p-10 hover:border-[#00A651] transition-all hover:shadow-[0_20px_60px_rgba(0,166,81,0.1)] cursor-pointer scroll-mt-24">
+            <Reveal variant="up" delay={1}>
+            <div id="epargne" className="group h-full bg-white border border-[#003d1f]/10 rounded-lg p-6 sm:p-10 hover:border-[#00A651] transition-all hover:shadow-[0_20px_60px_rgba(0,166,81,0.1)] cursor-pointer scroll-mt-24">
               <div className="w-12 sm:w-14 h-12 sm:h-14 bg-[#00A651]/5 rounded-full flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-[#00A651]/10 transition-colors">
                 <TrendingUp className="w-6 sm:w-7 h-6 sm:h-7 text-[#00A651]" strokeWidth={1.5} />
               </div>
@@ -309,9 +328,11 @@ export default function App() {
                 En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
               </div>
             </div>
+            </Reveal>
 
             {/* Card 2 - Crédit */}
-            <div id="credit" className="group bg-[#003d1f] rounded-lg p-6 sm:p-10 hover:shadow-[0_20px_60px_rgba(0,61,31,0.3)] transition-all cursor-pointer relative overflow-hidden scroll-mt-24">
+            <Reveal variant="up" delay={2}>
+            <div id="credit" className="group h-full bg-[#003d1f] rounded-lg p-6 sm:p-10 hover:shadow-[0_20px_60px_rgba(0,61,31,0.3)] transition-all cursor-pointer relative overflow-hidden scroll-mt-24">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-[#F7941D] text-white px-3 py-1.5 rounded text-[10px] font-medium uppercase tracking-wide">
                 Populaire
               </div>
@@ -332,9 +353,11 @@ export default function App() {
                 En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
               </div>
             </div>
+            </Reveal>
 
             {/* Card 3 - Immobilier */}
-            <div id="immobilier" className="group bg-white border border-[#003d1f]/10 rounded-lg p-6 sm:p-10 hover:border-[#F7941D] transition-all hover:shadow-[0_20px_60px_rgba(247,148,29,0.1)] cursor-pointer md:col-span-2 lg:col-span-1 scroll-mt-24">
+            <Reveal variant="up" delay={3} className="md:col-span-2 lg:col-span-1">
+            <div id="immobilier" className="group h-full bg-white border border-[#003d1f]/10 rounded-lg p-6 sm:p-10 hover:border-[#F7941D] transition-all hover:shadow-[0_20px_60px_rgba(247,148,29,0.1)] cursor-pointer scroll-mt-24">
               <div className="w-12 sm:w-14 h-12 sm:h-14 bg-[#F7941D]/5 rounded-full flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-[#F7941D]/10 transition-colors">
                 <Home className="w-6 sm:w-7 h-6 sm:h-7 text-[#F7941D]" strokeWidth={1.5} />
               </div>
@@ -351,6 +374,7 @@ export default function App() {
                 En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
               </div>
             </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -525,9 +549,12 @@ export default function App() {
               </p>
             </div>
             <div className="flex items-center gap-4 mt-10 pl-4 sm:pl-8">
-              <div className="w-12 h-12 bg-[#00A651]/10 rounded-full flex items-center justify-center">
-                <span className="text-[#00A651] font-medium">AB</span>
-              </div>
+              <img
+                src="/pca.jpeg"
+                alt="Ahmadou BAKAYOKO, Président du Conseil d'Administration"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover ring-2 ring-[#00A651]/30"
+                loading="lazy"
+              />
               <div>
                 <div className="text-[#003d1f] font-medium">Ahmadou BAKAYOKO</div>
                 <div className="text-[#666] text-sm">Président du Conseil d'Administration de MA2E</div>
